@@ -13,7 +13,7 @@ update_config=1
 
 network={
     ssid="Ratta-Enterprise"
-    psk="ratta34537701"
+    psk="password"
 }
 ```
 修改ssid和psk可以连接不同的WIFI。
@@ -87,7 +87,7 @@ Qt mkspec 设置为 ```/opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-
 添加一个 Generic Linux Device
 ![添加一个Device][2]
 
-其中 IP 地址 要设置成你自己板子的 IP 地址，用板子 ```ifconfig```可以查看。
+其中 IP 地址 要设置成你自己板子的 IP 地址，在板子上用 ```ifconfig```可以查看。
 
 ## **3. 自己搭个简单文件服务器**
 
