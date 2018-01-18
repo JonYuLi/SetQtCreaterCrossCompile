@@ -63,6 +63,40 @@ Name设置为IMX6-GCC
 
     /opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake
     
+**modify qmake.conf**
+Update the mksepc file: /opt/fsl-imx-wayland/4.1.15-2.0.1/sysroots/cortexa7hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-arm-gnueabi-g++/qmake.conf 
+
+```
+@@ -1,5 +1,5 @@ #
+-# qmake configuration for building with arm-linux-gnueabi-g++
++# qmake configuration for building with arm-poky-linux-gnueabi-g++ 
+#   MAKEFILE_GENERATOR      = UNIX
+@@ -11,14 +11,17 @@ 
+include(../common/g++-unix.conf)   
+# modifications to g++.conf
+-QMAKE_CC                = arm-linux-gnueabi-gcc
+-QMAKE_CXX               = arm-linux-gnueabi-g++
+-QMAKE_LINK              = arm-linux-gnueabi-g++
+-QMAKE_LINK_SHLIB        = arm-linux-gnueabi-g++
++QMAKE_CC                = arm-poky-linux-gnueabi-gcc
++QMAKE_CXX               = arm-poky-linux-gnueabi-g++
++QMAKE_LINK              = arm-poky-linux-gnueabi-g++
++QMAKE_LINK_SHLIB        = arm-poky-linux-gnueabi-g++
++
++QMAKE_LFLAGS += --sysroot=/opt/fsl-imx-wayland/4.1.15-2.0.1/sysroots/cortexa7hf-neon-poky-linux-gnueabi -mfloat-abi=hard -mfpu=neon-vfpv4
++QMAKE_CXXFLAGS +=  -mfloat-abi=hard -mfpu=neon-vfpv4  
+# modifications to linux.conf
+-QMAKE_AR                = arm-linux-gnueabi-ar cqs
+-QMAKE_OBJCOPY           = arm-linux-gnueabi-objcopy
+-QMAKE_NM                = arm-linux-gnueabi-nm -P
+-QMAKE_STRIP             = arm-linux-gnueabi-strip
++QMAKE_AR                = arm-poky-linux-gnueabi-ar cqs
++QMAKE_OBJCOPY           = arm-poky-linux-gnueabi-objcopy
++QMAKE_NM                = arm-poky-linux-gnueabi-nm -P
++QMAKE_STRIP             = arm-poky-linux-gnueabi-strip
+ load(qt_config)
+```
+    
 **设置Kits**
 
 Name 设置为 ```IMX6SLEVK```
@@ -111,6 +145,11 @@ target.path = /home/root # path on device
 INSTALLS += target
 
 TARGET = /home/username/SimpleFileSever/file/Sn100ForAd
+
+INCLUDEPATH += /opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/
+INCLUDEPATH += /opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/arm-poky-linux-gnueabi/
+INCLUDEPATH += /opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/
+
 ```
 把TARGET中的username改成你自己的登录名
 
