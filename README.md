@@ -83,7 +83,7 @@ include(../common/g++-unix.conf)
 +QMAKE_LINK              = arm-poky-linux-gnueabi-g++
 +QMAKE_LINK_SHLIB        = arm-poky-linux-gnueabi-g++
 +
-+QMAKE_LFLAGS += --sysroot=/opt/fsl-imx-wayland/4.1.15-2.0.1/sysroots/cortexa7hf-neon-poky-linux-gnueabi -mfloat-abi=hard -mfpu=neon-vfpv4
++QMAKE_LFLAGS += --sysroot=/opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi -mfloat-abi=hard -mfpu=neon-vfpv4
 +QMAKE_CXXFLAGS +=  -mfloat-abi=hard -mfpu=neon-vfpv4  
 # modifications to linux.conf
 -QMAKE_AR                = arm-linux-gnueabi-ar cqs
