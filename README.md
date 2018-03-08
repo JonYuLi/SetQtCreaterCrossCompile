@@ -29,7 +29,7 @@ udhcpc -i wlan0 -s /usr/share/udhcpc/default.script
 运行 startWIFI.sh 就可以开启 WIFI
 ```
 $ chmod +x startWIFI.sh
-$ ./startWIFI.sh 1 > /dev/null
+$ ./startWIFI.sh
 ```
 
 使用以下的命令可以测试是否可以上网
@@ -127,11 +127,11 @@ Qt mkspec 设置为 ```/opt/fsl-imx6sl-x11-sdk/4.1.15-2.1.0/sysroots/cortexa9hf-
 
 在本地主机上使用以下命令
 ```
-$ mdkir $HOME/SimpleFileSever
-$ cd $HOME/SimpleFileSever
+$ mdkir $HOME/SimpleFileServer
+$ cd $HOME/SimpleFileServer
 $ wget https://github.com/JonYuLi/SetQtCreaterCrossCompile/raw/master/SimpleFileServer
-$ chmode +x SimpleFileSever
-$ ./SimpleFileSever
+$ chmod +x SimpleFileServer
+$ ./SimpleFileServer
 ```
 
 在浏览器中输入 http://localhost:8080/pollux/ 可以查看文件服务器是否正常运行
